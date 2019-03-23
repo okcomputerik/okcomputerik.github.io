@@ -18,7 +18,7 @@
         dataType: tableau.dataTypeEnum.string
     }, {
         id: "Valor",
-        dataType: tableau.dataTypeEnum.number
+        dataType: tableau.dataTypeEnum.string
     },];
 
     var tableSchema = {
