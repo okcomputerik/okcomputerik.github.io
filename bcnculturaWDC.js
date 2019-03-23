@@ -54,15 +54,15 @@ myConnector.getData = function(table, doneCallback) {
         // Iterate over the JSON object
         for (var i = 0, len = feat.length; i < len; i++) {
             tableData.push({
-                "Any": feat[i].any,
-                "Ambit": feat[i].ambit,
-                "Titularitat": feat[i].titularitat,
-                "Latitud": feat[i].latitud,
-                "Longitud": feat[i].longitud,
-                "TipusEquipament": feat[i].tipusequipament,
-                "Equipament": feat[i].equipament,
-                "Districte": feat[i].districte,
-                "Concerts": feat[i].concerts
+                "Any": feat[i].Any,
+                "Ambit": feat[i].Ambit,
+                "Titularitat": feat[i].Titularitat,
+                "Latitud": feat[i].Latitud,
+                "Longitud": feat[i].Longitud,
+                "TipusEquipament": feat[i].Tipusequipament,
+                "Equipament": feat[i].Equipament,
+                "Districte": feat[i].Districte,
+                "Concerts": feat[i].Concerts
             });
         }
 
