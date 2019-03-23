@@ -37,8 +37,8 @@
     },];
 
     var tableSchema = {
-        id: "dadesdeciutatfeed",
-        alias: "Dades de ciutat - Observatori Dades Culturals Barcelona",
+        id: "salesmusicaenviufeed",
+        alias: "Concerts a sales de música en viu",
         columns: cols
     };
 
@@ -47,7 +47,7 @@
 
 // Download the data
 myConnector.getData = function(table, doneCallback) {
-    $.getJSON("http://dades.eicub.net/api/1/dadesciutat-dadesglobals", function(resp) {
+    $.getJSON("http://dades.eicub.net/api/1/dades_musica_en_viu", function(resp) {
         var feat = resp,
             tableData = [];
 
@@ -55,9 +55,14 @@ myConnector.getData = function(table, doneCallback) {
         for (var i = 0, len = feat.length; i < len; i++) {
             tableData.push({
                 "Any": feat[i].Any,
-                "Categoria": feat[i].Categoria,
-                "Indicador": feat[i].Indicador,
-                "Valor": feat[i].Valor,
+                "Ambit": feat[i].Ambit,
+                "Titularitat": feat[i].Titularitat,
+                "Latitud": feat[i].Latitud,
+                "Longitud": feat[i].Longitud,
+                "TipusEquipament": feat[i].Tipusequipament,
+                "Equipament": feat[i].Equipament,
+                "Districte": feat[i].Districte,
+                "Concerts": feat[i].Concerts
             });
         }
 
