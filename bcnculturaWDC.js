@@ -11,34 +11,19 @@
         id: "Any",
         dataType: tableau.dataTypeEnum.date
     }, {
-        id: "Ambit",
+        id: "Categoria",
         dataType: tableau.dataTypeEnum.string
     }, {
-        id: "Titularitat",
+        id: "Indicador",
         dataType: tableau.dataTypeEnum.string
     }, {
-        id: "Latitud",
-        dataType: tableau.dataTypeEnum.float
-    }, {
-        id: "Longitud",
-        dataType: tableau.dataTypeEnum.float
-    }, {
-        id: "TipusEquipament",
-        dataType: tableau.dataTypeEnum.string
-    }, {
-        id: "Equipament",
-        dataType: tableau.dataTypeEnum.string
-    }, {
-        id: "Districte",
-        dataType: tableau.dataTypeEnum.string
-    }, {
-        id: "Concerts",
-        dataType: tableau.dataTypeEnum.string
+        id: "Valor",
+        dataType: tableau.dataTypeEnum.number
     },];
 
     var tableSchema = {
         id: "dadesdeciutatfeed",
-        alias: "Dades de ciutat - Observatori Dades Culturals Barcelona",
+        alias: "Dades de ciutat - Observatori de Dades Culturals de Barcelona",
         columns: cols
     };
 
