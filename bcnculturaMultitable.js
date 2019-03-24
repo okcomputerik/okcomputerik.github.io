@@ -247,13 +247,6 @@
 		}
 	};
 
-	// Check to see if the tableauVersionBootstrap is defined as a global object. If not, we're running in the simulator code to load the script asynchronously
-	if (!window.tableauVersionBootstrap) {
-		var DOMContentLoaded_event = window.document.createEvent("Event")
-		DOMContentLoaded_event.initEvent("DOMContentLoaded", true, true)
-		window.document.dispatchEvent(DOMContentLoaded_event)
-	}
-
 	// Check to see if the tableauVersionBootstrap is defined as a global object. If so,
 	// we are running in the Tableau desktop/server context. If not, we're running in the simulator
 	tableau.registerConnector(myConnector);
