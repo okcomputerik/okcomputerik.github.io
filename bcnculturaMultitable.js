@@ -204,8 +204,8 @@
 						"TipusGeneral": feat[i].TipusGeneral,
 						"TipusEquipament": feat[i].TipusEquipament,
 						"Ambit": feat[i].Ambit,
-						"Latitud": feat[i].geometry.coordinates[0],
-						"Longitud": feat[i].geometry.coordinates[1],
+						"Latitud": feat[i].Latitud,
+						"Longitud": feat[i].Longitud,
 					});
 				}
 				table.appendRows(tableData);
@@ -237,8 +237,8 @@
 						"TipusGeneral": feat[i].TipusGeneral,
 						"TipusEquipament": feat[i].TipusEquipament,
 						"Ambit": feat[i].Ambit,
-						"Latitud": feat[i].geometry.coordinates[0],
-						"Longitud": feat[i].geometry.coordinates[1],
+						"Latitud": feat[i].Latitud,
+						"Longitud": feat[i].Longitud,
 					});
 				}
 				table.appendRows(tableData);
@@ -247,6 +247,12 @@
 		}
 	};
 
+	// Check to see if the tableauVersionBootstrap is defined as a global object. If so, we are running in the Tableau desktop/server context. If not, we're running in the simulator
+	tableau.registerConnector(myConnector);
+	if (!!window.tableauVersionBootstrap) {
+		window._tableau.triggerInitialization();
+	}
+
 	// Check to see if the tableauVersionBootstrap is defined as a global object. If not, we're running in the simulator code to load the script asynchronously
 	if (!window.tableauVersionBootstrap) {
 		var DOMContentLoaded_event = window.document.createEvent("Event")
@@ -254,16 +260,18 @@
 		window.document.dispatchEvent(DOMContentLoaded_event)
 	}
 
-	// Check to see if the tableauVersionBootstrap is defined as a global object. If so,
-	// we are running in the Tableau desktop/server context. If not, we're running in the simulator
-	tableau.registerConnector(myConnector);
-	if (!!window.tableauVersionBootstrap) {
-		window._tableau.triggerInitialization();
-	}
-
 	// Create event listeners for when the user submits the form
-        $("#submitButton").click(function () {
-            tableau.connectionName = "BCN Cultura Feed";	// This will be the data source name in Tableau
-            tableau.submit();	// This sends the connector object to Tableau
-        });
-});
+	$(document).ready(function() {
+		$('#submitButton').click(function() {
+			tableau.connectionName = 'Grans Auditoris Feed'; // This will be the data source name in Tableau
+			$.getJSON("http://dades.eicub.net/api/1/dades_grans_auditoris", function(resp) {
+				tableau.connectionData = resp.length.toString();
+				tableau.submit(); // This sends the connector object to Tableau
+            		});
+			$.getJSON("http://dades.eicub.net/api/1/dades_musica_en_viu", function(resp) {
+				tableau.connectionData = resp.length.toString();
+				tableau.submit(); // This sends the connector object to Tableau
+            		});
+        	});
+    	});
+})();
