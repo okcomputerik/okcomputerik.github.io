@@ -60,4 +60,3 @@ myConnector.getData = function(table, doneCallback) {
         });
     });
 })();
-
