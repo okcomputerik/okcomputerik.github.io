@@ -8,80 +8,80 @@
 		// Schema for large concerts halls
 		var grans_auditoris_cols = [{
 			id: "Equipament",
-			alias: "concert hall",
+			alias: "Venue",
 			dataType: tableau.dataTypeEnum.string
 		}, {
 			id: "Any",
-			alias: "date",
+			alias: "Date",
 			dataType: tableau.dataTypeEnum.date
 		}, {
 			id: "Concerts",
-			alias: "concerts",
+			alias: "Concerts",
 			columnRole: "measure",
 			dataType: tableau.dataTypeEnum.float
 		},  {
 			id: "Aforament",
-			alias: "seats",
+			alias: "Seats",
 			columnRole: "measure",
 			dataType: tableau.dataTypeEnum.float
 		},  {
 			id: "Entrades_Venudes",
-			alias: "tickets sold",
+			alias: "Tickets sold",
 			columnRole: "measure",
 			dataType: tableau.dataTypeEnum.float
 		},  {
 			id: "Espectadors",
-			alias: "attendance",
+			alias: "Attendance",
 			columnRole: "measure",
 			dataType: tableau.dataTypeEnum.float
 		},  {
 			id: "Codi_Districte",
-			alias: "district code",
+			alias: "District code",
 			columnRole: "dimension",
 			dataType: tableau.dataTypeEnum.string
 		},  {
 			id: "Nom_Districte",
-			alias: "district name",
+			alias: "District name",
 			columnRole: "dimension",
 			dataType: tableau.dataTypeEnum.string
 		},   {
 			id: "Codi_Barri",
-			alias: "neighborhood code",
+			alias: "Neighborhood code",
 			columnRole: "dimension",
 			dataType: tableau.dataTypeEnum.string
 		},   {
 			id: "Nom_Barri",
-			alias: "neighborhood name",
+			alias: "Neighborhood name",
 			columnRole: "dimension",
 			dataType: tableau.dataTypeEnum.string
 		},   {
 			id: "Titularitat",
-			alias: "ownership",
+			alias: "Ownership",
 			columnRole: "dimension",
 			dataType: tableau.dataTypeEnum.string
 		},   {
 			id: "TipusGeneral",
-			alias: "type",
+			alias: "Type",
 			columnRole: "dimension",
 			dataType: tableau.dataTypeEnum.string
 		},   {
 			id: "TipusEquipament",
-			alias: "venue type",
+			alias: "Venue type",
 			columnRole: "dimension",
 			dataType: tableau.dataTypeEnum.string
 		},   {
 			id: "Ambit",
-			alias: "scope",
+			alias: "Scope",
 			columnRole: "dimension",
 			dataType: tableau.dataTypeEnum.string
 		},   {
 			id: "Latitud",
-			alias: "latitude",
+			alias: "Latitude",
 			columnRole: "dimension",
 			dataType: tableau.dataTypeEnum.float
 		},   {
 			id: "Longitud",
-			alias: "longitude",
+			alias: "Longitude",
 			columnRole: "dimension",
 			dataType: tableau.dataTypeEnum.float
 		}];
@@ -95,75 +95,80 @@
 		// Schema for small music venues data
 		var sales_en_viu_cols = [{
 			id: "Equipament",
-			alias: "venue",
+			alias: "Venue",
 			dataType: tableau.dataTypeEnum.string
 		}, {
 			id: "Any",
-			alias: "date",
+			alias: "Date",
 			dataType: tableau.dataTypeEnum.date
 		}, {
 			id: "Concerts",
-			alias: "concerts",
+			alias: "Concerts",
 			columnRole: "measure",
 			dataType: tableau.dataTypeEnum.float
 		},  {
 			id: "Aforament",
-			alias: "seats",
+			alias: "Seats",
+			columnRole: "measure",
+			dataType: tableau.dataTypeEnum.float
+		},  {
+			id: "Entrades_Venudes",
+			alias: "Tickets sold",
 			columnRole: "measure",
 			dataType: tableau.dataTypeEnum.float
 		},  {
 			id: "Espectadors",
-			alias: "attendance",
+			alias: "Attendance",
 			columnRole: "measure",
 			dataType: tableau.dataTypeEnum.float
 		},  {
 			id: "Codi_Districte",
-			alias: "district code",
+			alias: "District code",
 			columnRole: "dimension",
 			dataType: tableau.dataTypeEnum.string
 		},  {
 			id: "Nom_Districte",
-			alias: "district name",
+			alias: "District name",
 			columnRole: "dimension",
 			dataType: tableau.dataTypeEnum.string
 		},   {
 			id: "Codi_Barri",
-			alias: "neighborhood code",
+			alias: "Neighborhood code",
 			columnRole: "dimension",
 			dataType: tableau.dataTypeEnum.string
 		},   {
 			id: "Nom_Barri",
-			alias: "neighborhood name",
+			alias: "Neighborhood name",
 			columnRole: "dimension",
 			dataType: tableau.dataTypeEnum.string
 		},   {
 			id: "Titularitat",
-			alias: "ownership",
+			alias: "Ownership",
 			columnRole: "dimension",
 			dataType: tableau.dataTypeEnum.string
 		},   {
 			id: "TipusGeneral",
-			alias: "type",
+			alias: "Type",
 			columnRole: "dimension",
 			dataType: tableau.dataTypeEnum.string
 		},   {
 			id: "TipusEquipament",
-			alias: "venue type",
+			alias: "Venue type",
 			columnRole: "dimension",
 			dataType: tableau.dataTypeEnum.string
 		},   {
 			id: "Ambit",
-			alias: "scope",
+			alias: "Scope",
 			columnRole: "dimension",
 			dataType: tableau.dataTypeEnum.string
 		},   {
 			id: "Latitud",
-			alias: "latitude",
+			alias: "Latitude",
 			columnRole: "dimension",
 			dataType: tableau.dataTypeEnum.float
 		},   {
 			id: "Longitud",
-			alias: "longitude",
+			alias: "Longitude",
 			columnRole: "dimension",
 			dataType: tableau.dataTypeEnum.float
 		}];
@@ -263,7 +268,7 @@
 	// Create event listeners for when the user submits the form
 	$(document).ready(function() {
 		$('#submitButton').click(function() {
-			tableau.connectionName = 'Grans Auditoris Feed'; // This will be the data source name in Tableau
+			tableau.connectionName = 'Barcelona Cultura - Música Feed'; // This will be the data source name in Tableau
 			$.getJSON("http://dades.eicub.net/api/1/dades_grans_auditoris", function(resp) {
 				tableau.connectionData = resp.length.toString();
 				tableau.submit(); // This sends the connector object to Tableau
