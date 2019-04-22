@@ -95,7 +95,6 @@
 		schemaCallback([gransAuditorisTable]);
 	};
 
-
 	// Download the data
 	myConnector.getData = function(table, doneCallback) {
 
@@ -131,6 +130,7 @@
 		                doneCallback();
 			});
 		}
+	};
 
 	// Check to see if the tableauVersionBootstrap is defined as a global object. If so, we are running in the Tableau desktop/server context. If not, we're running in the simulator
 	tableau.registerConnector(myConnector);
